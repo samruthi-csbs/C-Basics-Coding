@@ -1,0 +1,54 @@
+To find sum of digits of a number:
+
+Get last digit using % 10
+
+Add it to sum
+
+Remove last digit using / 10
+
+Repeat until number becomes 0
+
+Example:
+
+Number = 123
+Digits: 3, 2, 1
+Sum = 3 + 2 + 1 = 6
+
+✅ C Program: Sum of Digits
+#include <stdio.h>
+
+int main() {
+    int n, sum = 0, digit;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    while (n > 0) {
+        digit = n % 10;
+        sum = sum + digit;
+        n = n / 10;
+    }
+
+    printf("Sum of digits is %d", sum);
+
+    return 0;
+}
+
+🔍 Example Output
+Enter a number: 456
+Sum of digits is 15
+
+🧩 Trick to Remember the Logic
+"MOD → ADD → DIV → REPEAT"
+
+% 10 → get last digit
+
++ → add to sum
+
+/ 10 → remove last digit
+
+repeat till 0
+
+Or short exam memory line:
+
+Extract digit using modulus, add it to sum, remove digit using division.
