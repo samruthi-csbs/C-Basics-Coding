@@ -26,9 +26,7 @@ int main() {
 
     return 0;
 }
-🔍 Example Output
-mathematica
-Copy code
+
 Enter a number: 5
 Factorial of 5 is 120
 🧩 Trick to Remember the Logic
@@ -36,5 +34,4 @@ Factorial of 5 is 120
 Factorial always starts from 1
 
 Loop multiplies each number
-
 End at n
