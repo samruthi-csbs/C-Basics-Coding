@@ -3,6 +3,9 @@ Factorial of a number n means:
 n! = n × (n-1) × (n-2) × ... × 1
 
 ##SAMPLE CODE---
+
+
+
 #include <stdio.h>
 
 int main() {
