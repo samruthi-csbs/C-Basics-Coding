@@ -1,0 +1,75 @@
+# 📊 Maximum Average Subarray I (C)
+
+## 📝 Problem Statement
+**LeetCode #643: Maximum Average Subarray I**  
+
+Given an integer array `nums` consisting of `n` elements, and an integer `k`,  
+find a **contiguous subarray of length k** that has the **maximum average value** and return this value.  
+Any answer with a calculation error less than 10^-5 will be accepted.
+
+**Example 1:**  
+Input: nums = [1,12,-5,-6,50,3], k = 4  
+Output: 12.75000  
+_Explanation: Maximum average is (12 - 5 - 6 + 50) / 4 = 51 / 4 = 12.75_
+
+**Example 2:**  
+Input: nums = [5], k = 1  
+Output: 5.00000  
+
+---
+
+## 🔍 How It Works
+
+**Sliding Window Approach:**  
+
+1. Calculate the sum of the **first k elements** → initial sum  
+2. Slide the window by one element at a time:  
+   - `sum = sum - nums[i - k] + nums[i]`  
+   - Update `maxSum` if current sum is larger  
+3. Return `maxSum / k` → maximum average  
+
+✅ Efficient **O(n)** solution, single pass through array, **O(1) extra space**.
+
+> 💡 Classic **sliding window problem** — perfect for contiguous subarray sums.
+
+---
+
+## 💻 C Code
+
+```c
+#include <stdio.h>
+
+double findMaxAverage(int nums[], int n, int k) {
+    double sum = 0;
+    for(int i = 0; i < k; i++)
+        sum += nums[i];
+
+    double maxSum = sum;
+
+    for(int i = k; i < n; i++) {
+        sum = sum - nums[i - k] + nums[i];
+        if(sum > maxSum)
+            maxSum = sum;
+    }
+
+    return maxSum / k;
+}
+
+int main() {
+    int n, k;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    int nums[n];
+    printf("Enter %d elements:\n", n);
+    for(int i = 0; i < n; i++)
+        scanf("%d", &nums[i]);
+
+    printf("Enter window size k: ");
+    scanf("%d", &k);
+
+    double maxAvg = findMaxAverage(nums, n, k);
+    printf("Maximum average of subarray of size %d: %.5lf\n", k, maxAvg);
+
+    return 0;
+}
